@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct SkibidifyApp: App {
+    
+    @Environment(\.supportsImagePlayground) var supportsImagePlayground
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if supportsImagePlayground {
+                ContentView()
+            } else {
+                Text("Image Playground is not supported on this device.")
+                    .multilineTextAlignment(.center)
+            }
         }
     }
 }
